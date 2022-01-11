@@ -16,6 +16,10 @@ export class AppComponent {
         Validators.minLength(2),
       ]),
       apellido: new FormControl('', [Validators.required]),
+      correo: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+      ]),
     });
   }
   get nombre() {
@@ -24,6 +28,11 @@ export class AppComponent {
   get apellido() {
     return this.formulario.get('apellido');
   }
+  
+  get correo(){
+    return this.formulario.get('correo');
+  }
+
   guardar() {
     console.log(this.formulario.value);
   }

@@ -1,13 +1,24 @@
-<p>Hola mundo</p>
-
 <form [formGroup]="formulario" (ngSubmit)="guardar()">
-  <input formControlName="nombre" type="text" />
+  <input formControlName="nombre" type="text" placeholder="nombres" />
   <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
     <span *ngIf="nombre.errors?.['required']">Nombre es requerido</span>
     <span *ngIf="nombre.errors?.['minlength']">Mínimo 2 caracteres</span>
   </div>
   <br />
-  <input formControlName="apellido" type="text" />
+  <input formControlName="apellido" type="text" placeholder="apellidos" />
+  <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+    <span *ngIf="apellido.errors?.['required']">Apellido es requerido</span>
+  </div>
+  <br />
+  <input
+    formControlName="correo"
+    type="email"
+    placeholder="correo@dominio.com"
+  />
+  <div *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+    <span *ngIf="correo.errors?.['required']">Correo es requerido</span>
+    <span *ngIf="correo.errors?.['pattern']">Debe ser un correo válido</span>
+  </div>
   <br />
   <input [disabled]="!formulario.valid" type="submit" value="submit" />
 </form>
