@@ -1,0 +1,12 @@
+<p>Hola mundo</p>
+
+<form [formGroup]="formulario" (ngSubmit)="guardar()">
+  <input formControlName="nombre" type="text" />
+  <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+    <span *ngIf="nombre.errors?.['required']">Nombre es requerido</span>
+  </div>
+  <br />
+  <input formControlName="apellido" type="text" />
+  <br />
+  <input [disabled]="!formulario.valid" type="submit" value="submit" />
+</form>
