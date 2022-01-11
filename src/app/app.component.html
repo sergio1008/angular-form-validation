@@ -4,6 +4,7 @@
   <input formControlName="nombre" type="text" />
   <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
     <span *ngIf="nombre.errors?.['required']">Nombre es requerido</span>
+    <span *ngIf="nombre.errors?.['minlength']">Mínimo 2 caracteres</span>
   </div>
   <br />
   <input formControlName="apellido" type="text" />

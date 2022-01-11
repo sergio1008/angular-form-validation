@@ -11,12 +11,19 @@ export class AppComponent {
 
   constructor() {
     this.formulario = new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+      ]),
       apellido: new FormControl('', [Validators.required]),
     });
   }
-  get nombre() { return this.formulario.get('nombre'); }
-  get apellido() { return this.formulario.get('apellido'); }
+  get nombre() {
+    return this.formulario.get('nombre');
+  }
+  get apellido() {
+    return this.formulario.get('apellido');
+  }
   guardar() {
     console.log(this.formulario.value);
   }
